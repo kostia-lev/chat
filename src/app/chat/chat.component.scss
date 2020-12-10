@@ -1,0 +1,91 @@
+$base-color: #8258FA;
+$base-color-lighter: #BCA9F5;
+$blue: #81BEF7;
+$blue-lighter: #81DAF5;
+
+header {
+    text-align: center;
+    height: 32px;
+}
+
+h1 {
+    margin: 0px;
+}
+
+div#change_username, section#input_zone {
+    border: 5px outset $base-color;
+}
+
+div#change_username {
+    display: inline-block;
+    background-color: $base-color-lighter;
+}
+
+section#chatroom {
+    border: 5px inset $base-color;
+    height: calc(100% - 63px - 42px);
+    overflow: auto;
+    display: flex;
+}
+
+section#feedback {
+    width: 80%;
+}
+
+section#user_list {
+    width: 20%;
+    border-left: 5px inset $base-color;
+}
+
+section#input_zone {
+    height: 42px;
+    text-align: center;
+    background-color: $base-color-lighter;
+}
+
+.vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+input#username {
+    font-family: 'Comfortaa', sans-serif;
+}
+
+input#message {
+    display: inline-block;
+    width: 88%;
+    height: 70%;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 2vh;
+}
+
+button#send_message {
+    display: inline-block;
+    height: 70%;
+    width: 10%;
+}
+
+p.message {
+    margin: 0px;
+    width: 100%;
+    height: 40px;
+    font-size: 2vh;
+    font-family: 'Comfortaa', sans-serif;
+    padding: 1vh;
+}
+
+.message:nth-child(even) {
+    background-color: $blue-lighter;
+}
+
+.message:nth-child(odd) {
+    background-color: $blue;
+}
+
+.cursorPointer {
+    cursor: pointer;
+}

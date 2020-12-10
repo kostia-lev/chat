@@ -1,0 +1,34 @@
+<header>
+    <h1>Chat</h1>
+</header>
+<section>
+    <div id="change_username">
+        <input #username id="username" type="text" />
+        <button id="send_username" type="button"
+                (click)="setUsername(username.value)">Change username</button>
+    </div>
+    <span>
+        Your nickname: {{currentUserName}}
+    </span>
+</section>
+
+<section id="chatroom">
+    <section id="feedback">
+        <p *ngFor="let messageObj of messages">
+            ({{messageObj.time?.toLocaleTimeString('en-US', { hour12: false })}})
+            {{(users[messageObj.userId] || messageObj.userName) + ": " + messageObj.message}}
+        </p>
+    </section>
+    <section id="user_list">
+        <p class="cursorPointer" (dblclick)="setMsgInputVal('@' + item.value + ': ')"
+           *ngFor="let item of users | keyvalue">{{item.value}}</p>
+    </section>
+</section>
+
+<section id="input_zone">
+    <input [(ngModel)]="currentMessageText" (keydown.enter)="sendMessage()"
+           #msg="ngModel" id="message" class="vertical-align" type="text" />
+
+    <button id="send_message" class="vertical-align" type="button"
+            (click)="sendMessage()">Send</button>
+</section>
