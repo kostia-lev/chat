@@ -15,8 +15,8 @@
 <section id="chatroom">
     <section id="feedback">
         <p *ngFor="let messageObj of messages">
-            ({{messageObj.time?.toLocaleTimeString('en-US', { hour12: false })}})
-            {{(users[messageObj.userId] || messageObj.userName) + ": " + messageObj.message}}
+            ({{messageObj.time | date : 'short'}})
+            {{([messageObj, users] | username) + ": " + messageObj.message}}
         </p>
     </section>
     <section id="user_list">
